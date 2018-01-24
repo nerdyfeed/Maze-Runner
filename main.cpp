@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <windows.h>
 #include <conio.h>
+#include <clocale>
 
 using namespace std;
 
@@ -8,7 +9,7 @@ void gameOverManagement()
 {
 	setlocale(LC_ALL,"rus");
 system("cls");
-cout << "\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t     Конец игры!\n\n\n\n\n\n\n\n\n\n\n";
+cout << "\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t     Game Over!\n\n\n\n\n\n\n\n\n\n\n";
 system("pause");
 Sleep(100);
 exit(0);
@@ -16,7 +17,7 @@ exit(0);
 {
 	setlocale(LC_ALL,"rus");
 system("cls");
-cout << "\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t     Победа!\n\n\n\n\n\n\n\n\n\n\n";
+cout << "\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t     Winner!\n\n\n\n\n\n\n\n\n\n\n";
 system("pause");
 exit(0);
 } int dataManagement(int management, int stopGame)
@@ -36,10 +37,33 @@ return management,stopGame;
 }
 int main()
 {
-// 1 - стенки лабиринта
-// 0 - путь
+	setlocale(LC_ALL,NULL);
+int menu;
+int lvl;
+int start2;
+   menu:
+   cout << "\n\t\t\t\t1 - Start\n\t\t\t\t2 - Exit\n\nChoose: ";
+   cin >> menu;
+    switch (menu)
+        {
+            case 1: {goto lvl; break;}
+            case 2: {return 0; break;}
+            default: {cout << "\nБудьте внимательнее!\n"; goto menu;}
+        }
+    lvl:
+	cout << "\n\t\t\t\t1 - Level I\n\t\t\t\t2 - Level II\n\nChoose: ";
+	cin >> lvl;
+	switch (lvl)
+	{
+	 case 1: {goto start;}
+	 case 2: {goto start;}
+	}
+// 1 - Стенки лабиринта
+// 0 - Путь
 //
 // Мар 1
+	//setlocale(LC_ALL,NULL);
+	start:
     int mas[24][24] = { {1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,},
                         {1,0,1,0,0,1,0,1,0,0,0,1,1,1,1,0,0,0,0,1,},
                         {1,0,1,1,0,1,0,1,0,1,0,0,0,0,1,0,1,1,0,1,},
@@ -70,13 +94,14 @@ int stopGame(0);
 mas[s1][s2] = 2; do
 {
   system("cls");
-  for (int i = 0; i < 24; i++) //переключение по строкам
+  for (int i = 0; i < 24; i++) //Переключение по строкам
   {
-   for (int j = 0; j < 20; j++)// переключение по столбцам
+   for (int j = 0; j < 20; j++)// Переключение по столбцам
    {
     if (mas[i][j] == 1)
     {
      // Тип постройки
+		setlocale(LC_ALL,NULL);
      cout << static_cast<char>(178);
      cout << static_cast<char>(178);
     }
@@ -86,6 +111,7 @@ mas[s1][s2] = 2; do
     }
     if (mas[i][j] == 2)
     {
+		setlocale(LC_ALL,NULL);
       cout << static_cast<char>(219);
 	  cout << static_cast<char>(219);
     }
