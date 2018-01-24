@@ -41,22 +41,25 @@ int main()
 int menu;
 int lvl;
 int start2;
-   menu:
+menu:
+   cout << "\n\t\t\t\t";
+   cout << "\n\t\t\t\tMaze Runner";
+   cout << "\n\t\t\t\t";
    cout << "\n\t\t\t\t1 - Start\n\t\t\t\t2 - Exit\n\nChoose: ";
    cin >> menu;
     switch (menu)
         {
             case 1: {goto lvl; break;}
             case 2: {return 0; break;}
-            default: {cout << "\nБудьте внимательнее!\n"; goto menu;}
+            default: {cout << "\nError!Try again!\n"; goto menu;}
         }
     lvl:
-	cout << "\n\t\t\t\t1 - Level I\n\t\t\t\t2 - Level II\n\nChoose: ";
+	cout << "\n\t\t\t\t1 - Level I\n\t\t\t\t2 - Level II (unavailable)\n\nChoose: ";
 	cin >> lvl;
 	switch (lvl)
 	{
 	 case 1: {goto start;}
-	 case 2: {goto start;}
+	 case 2: {goto menu;}
 	}
 // 1 - Стенки лабиринта
 // 0 - Путь
